@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import Lifepoint from "./Lifepoint";
+import React from "react"
+import styled from "styled-components"
 
-const style = {
-  display: "flex"
-};
-const Lifebar = ({ lebenspunkte = 6 }) => {
-  const Lifebar = new Array(lebenspunkte).fill(<Lifepoint />);
-  return <div style={style}>{Lifebar}</div>;
-};
+const StyledLifebar = styled.div`
+    margin: -8px;
+`
+const Lifebar = ({ children = undefined }) => {
+    return <StyledLifebar>{children}</StyledLifebar>
+}
 
-export default Lifebar;
+export default Lifebar

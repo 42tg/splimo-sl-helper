@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ramda": "^0.25.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "styled-components": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,12 +27,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^4.0.2",
+    "@babel/core": "^7.1.2",
     "@storybook/addon-actions": "^4.0.2",
     "@storybook/addon-links": "^4.0.2",
     "@storybook/addons": "^4.0.2",
-    "@babel/core": "^7.1.2",
-    "babel-loader": "^8.0.4"
+    "@storybook/react": "^4.0.2",
+    "@types/ramda": "^0.25.41",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.8.0"
   },
   "prettier": {
     "parser": "typescript",
