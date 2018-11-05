@@ -1,6 +1,6 @@
 import React from "react";
+import EnemyForm from "../Enemys";
 import Enemy from "../Enemys/Enemy";
-
 import Lifepoint from "../Enemys/Lifepoint";
 import Lifebar from "../Enemys/Lifebar";
 
@@ -29,16 +29,27 @@ const EnemyStory = () => {
       </div>
 
       <div>
-        Ein Lebenspunkt sieht wie folgt aus :<Lifepoint />
+        Ein Lebenspunkt sieht wie folgt aus: <Lifepoint />
       </div>
       <hr />
       <div>
-        Eine Lebensleiste :<Lifebar />
+        Eine Lebensleiste: <Lifebar />
       </div>
       <hr />
       <div>
-        Und schließlich ein Besipel Gegner
-        <Enemy name="Horst" />
+        Und schließlich ein Beispiel Gegner
+        <Enemy name="Horst" lebenspunkte={8} />
+      </div>
+      <hr />
+      <div>
+        Gegner mit weniger Lebensleisten
+        <Enemy name="Paul" lebenspunkte={8} lebensleisten={3} />
+      </div>
+
+      <hr />
+      <div>
+        komplette form:
+        <EnemyForm />
       </div>
     </div>
   );
