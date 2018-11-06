@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Merienda');
-
-
-.App {
-  font-family: 'Merienda', Verdana, Arial, Helvetica, sans-serif;
-  color: #000000;
-  text-align: center;
-}
 
 
 .App-header {
@@ -18,7 +10,4 @@
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: #61dafb;
-}
 

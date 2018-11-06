@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import styled from "styled-components"
+import React, { useState, useEffect } from "react"
+import styled from "styled-components/macro"
 
 export const Outer = styled.div`
     display: inline-block;
@@ -10,7 +10,6 @@ export const Outer = styled.div`
     background: black;
     border-radius: 5px;
 `
-
 export const Inner = styled.div`
     margin: -4px;
     border-radius: 5px;
@@ -21,10 +20,15 @@ export const Inner = styled.div`
 `
 export default props => {
     const [active, setActive] = useState(props.active)
-    console.log(props.active)
+    useEffect(
+        () => {
+            setActive(props.active)
+        },
+        [props.active]
+    )
     return (
         <Outer onClick={() => setActive(!active)}>
-            <Inner active={props.active} />
+            <Inner active={active} />
         </Outer>
     )
 }
