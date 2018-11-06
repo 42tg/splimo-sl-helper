@@ -57,6 +57,11 @@ function reducer(state, action) {
     }
 }
 
+const ButtonArea = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const Button = styled.button`
     margin: 5px;
     border: 1px solid #777777;
@@ -70,7 +75,7 @@ const Button = styled.button`
 `
 const HealButton = styled(Button)`
     background: #009900;
-    color: #ffffff
+    color: #ffffff;
     border: 1px solid #99ee99;
 `
 const DamageButton = styled(Button)`
@@ -78,7 +83,10 @@ const DamageButton = styled(Button)`
     color: #ffffff;
     border: 1px solid #ee9999;
 `
-
+const StyledGegner = styled.div`
+    margin: 10px;
+    padding: 5px;
+`
 function Gegner({ name, lebenspunkte = 6, lebensleisten = 5 }) {
     const [state, dispatch] = useReducer(reducer, initialState, {
         type: "RESET",
@@ -98,10 +106,10 @@ function Gegner({ name, lebenspunkte = 6, lebensleisten = 5 }) {
     )
 
     return (
-        <div>
+        <StyledGegner>
             <h3>{state.name}</h3>
             <div>{seperated(state.Lebenspunkte)}</div>
-            <div>
+            <ButtonArea>
                 <HealButton onClick={() => dispatch({ type: "HEAL", heal: 5 })}>
                     5 Heal
                 </HealButton>
@@ -118,8 +126,8 @@ function Gegner({ name, lebenspunkte = 6, lebensleisten = 5 }) {
                 >
                     5 Damage
                 </DamageButton>
-            </div>
-        </div>
+            </ButtonArea>
+        </StyledGegner>
     )
 }
 
