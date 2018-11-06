@@ -63,10 +63,10 @@ const ButtonArea = styled.div`
 `
 
 const Button = styled.button`
-    margin: 5px;
+    margin: 8px;
     border: 1px solid #777777;
     border-radius: 3px;
-    padding: 5px 10px;
+    padding: 8px 10px;
     min-width: 80px;
     box-shadow: 2px 2px #000000;
     :active {

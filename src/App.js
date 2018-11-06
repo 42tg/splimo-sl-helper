@@ -38,7 +38,52 @@ const AppContent = styled(AppHeader)`
     justify-items: stretch;
     align-items: stretch;
 `
+
+const GegnerForm = styled.form`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+`
+const StyledInput = styled.input`
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    display: block;
+    text-align: center;
+`
+const StyledButton = styled.button`
+    border: 1px solid #99ee99;
+    background-color: #009900;
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 8px;
+    display: block;
+`
+
 class App extends Component {
+    state = { gegner: [], name: "", lebenspunkte: "" }
+    gegnerHinzufügen = e => {
+        e.preventDefault()
+        const { name, lebenspunkte, gegner } = this.state
+        if (!name || !lebenspunkte) return
+        this.setState({
+            gegner: [
+                ...gegner,
+                {
+                    name,
+                    lebenspunkte,
+                    lebensleisten: 5
+                }
+            ],
+            name: ""
+        })
+    }
+
+    handleInput = e => {
+        e.preventDefault()
+        this.setState({ [e.target.name]: e.target.value })
+    }
     render() {
         return (
             <div className={this.props.className}>
@@ -47,9 +92,27 @@ class App extends Component {
                 <AppHeader>
                     <img src={logo} alt="logo" />
                     <h1> Die Spielleiterhilfe </h1>
+                    <GegnerForm onSubmit={e => this.gegnerHinzufügen(e)}>
+                        <StyledInput
+                            placeholder="Name"
+                            name="name"
+                            value={this.state.name}
+                            onChange={e => this.handleInput(e)}
+                        />
+                        <StyledInput
+                            placeholder="LP"
+                            name="lebenspunkte"
+                            value={this.state.lebenspunkte}
+                            onChange={e => this.handleInput(e)}
+                            type="number"
+                        />
+                        <StyledButton>Hinzufügen</StyledButton>
+                    </GegnerForm>
                 </AppHeader>
                 <AppContent>
-                    <Gegner name="Hans" lebenspunkte={16} />
+                    {this.state.gegner.map((gegner, id) => (
+                        <Gegner key={id} {...gegner} />
+                    ))}
                 </AppContent>
             </div>
         )
