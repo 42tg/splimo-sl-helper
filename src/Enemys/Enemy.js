@@ -15,7 +15,8 @@ const initialState = {
     Lebenspunkte: []
 }
 
-function reducer(state, action) {
+function reducer(state = initialState, action) {
+    console.log(state)
     switch (action.type) {
         case "HEAL": {
             const schaden = Math.max(0, state.schaden - action.heal)
@@ -88,11 +89,12 @@ const StyledGegner = styled.div`
     padding: 5px;
 `
 function Gegner({ name, lebenspunkte = 6, lebensleisten = 5 }) {
-    const [state, dispatch] = useReducer(reducer, initialState, {
-        type: "RESET",
-        name,
+    const [state, dispatch] = useReducer(reducer, {
+        name: name,
+        schaden: 0,
+        lebenspunkte,
         lebensleisten,
-        lebenspunkte
+        Lebenspunkte: new Array(lebensleisten * lebenspunkte).fill(false)
     })
 
     const renderLifepoints = (active, index) => {

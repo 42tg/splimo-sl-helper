@@ -20,14 +20,12 @@ export const Inner = styled.div`
 `
 export default props => {
     const [active, setActive] = useState(props.active)
-    useEffect(
-        () => {
-            setActive(props.active)
-        },
-        [props.active]
-    )
+    useEffect(() => {
+        setActive(props.active)
+    }, [props.active])
     return (
-        <Outer onClick={() => setActive(!active)}>
+        // <Outer onClick={() => setActive(!active)}>
+        <Outer>
             <Inner active={active} />
         </Outer>
     )
